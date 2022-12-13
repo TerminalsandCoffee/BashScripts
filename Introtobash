@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo my name is Rafael; echo My favorite food is bags of sugar!; echo and my favorite thing to do is take afternoon naps on my big couch!
+
+echo 'Lastly, this is my promose to learn bash'
