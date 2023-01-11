@@ -1,0 +1,15 @@
+variable1="This is 'just' a \"test\""
+echo -e $variable1
+
+#create a file
+echo -e $variable1 > value.txt
+
+variable2="This is a backslash \"\\\" and this is a signle quote '."
+echo -e $variable2
+
+
+variable3="3 double quotes \"\"\", and 3 single quotes ''', and 3 backslashes \\\\\\\\\."
+echo -e $variable3
+
+variable4="this is what a newline character looks like \\\n, it will create a new line."
+echo -e $variable4
