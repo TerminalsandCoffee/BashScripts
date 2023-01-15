@@ -1,0 +1,13 @@
+#!/bin/bash
+
+login_user=cloud_user
+if [ -n $1 ]
+then
+    ssh -o StrictHostKeyChecking=no $login_user@$1
+fi
+
+#make the file an executable 
+chmod u+x bin/lab.sh
+
+#run the script
+./bin/lab.sh localhost
