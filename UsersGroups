@@ -1,0 +1,26 @@
+#add groups 
+
+for group in management sales operations
+do
+    sudo groupadd $group
+done
+
+
+#xargs command which allows to execute a command with multiple arguments at once
+
+echo "management sales operations" | xargs -n1 sudo groupadd
+
+
+#add users
+
+for i in jen william matt sam anne danny kate bruce; do sudo useradd -m $i; done
+
+#or
+
+echo "jen william matt sam anne danny kate bruce" | xargs -n1 sudo useradd -m
+
+
+#to remove 
+for i in jen william matt sam anne danny kate bruce; do
+    sudo userdel $i
+done
