@@ -1,0 +1,16 @@
+#!/bin/bash
+# A simple script to greet a single user.
+
+if [ $# -eq 1 ]
+then
+  username=$1
+  echo "Hello $username!"
+else
+  echo "Please enter only one argument."
+fi
+echo "Number of arguments: $#."
+
+
+#The conditional logic is contained between if and fi. 
+#The condition to test is located between square brackets [ ], and the action to take should the condition be true is indicated after then.
+
