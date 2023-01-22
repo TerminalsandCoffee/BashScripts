@@ -14,3 +14,38 @@ echo "Number of arguments: $#."
 #The conditional logic is contained between if and fi. 
 #The condition to test is located between square brackets [ ], and the action to take should the condition be true is indicated after then.
 
+if [ $# -eq ]
+then
+  username=$1
+  
+  echo "Hello $username!"
+  exit 0
+ else
+  echo "Please enter only one argument."
+  exit 1
+ fi
+ echo "Number of arguments: $#."
+ 
+ 
+ 
+ #########################################################
+ 
+ if [ $# -eq 0 ]
+then
+	echo "Please enter at least one user to greet."
+    exit 1
+else
+	for username in $@
+	do
+		echo $username | grep "^[A-Za-z]*$" > /dev/null
+		if [ $? -eq 1 ]
+		then
+			echo "ERROR: Names must only contains letters."
+			exit 2
+		else
+			echo "Hello $username!"
+		fi
+	done
+	exit 0
+fi
+ 
