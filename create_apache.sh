@@ -33,3 +33,12 @@ echo "<html>
 
 # Restart Apache to apply changes
 systemctl restart httpd
+
+
+
+
+#yum update -y
+#yum install -y httpd.x86_64
+#systemctl start httpd.service
+#systemctl enable httpd.service
+#echo "Hello raffyraf from $(hostname -f)" > /var/www/html/index.html
