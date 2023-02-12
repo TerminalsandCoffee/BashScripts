@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Update all packages
+sudo yum update -y
+
+# Install NGINX
+sudo yum install nginx -y
+
+# Start the NGINX service
+sudo systemctl start nginx
+
+# Enable the NGINX service to start on boot
+sudo systemctl enable nginx
+
+# Create a custom webpage
+
+cd /var/www/html/
+
+echo "<html>
+  <head>
+    <title>My custom Apache homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to my custom Apache homepage! Let’s go Gold Team!</h1>
+  </body>
+</html>" >> index.html
+
+#not a web developer. 
+
+# Restart Apache to apply changes
+systemctl restart httpd
+
+
+#Save this to a file with a .sh extension, such as update_and_install_nginx.sh, then make it executable with chmod +x update_and_install_nginx.sh. 
+#You can then run the script with ./update_and_install_nginx.sh.
