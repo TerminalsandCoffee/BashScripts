@@ -1,0 +1,36 @@
+#!/bin/bash -x
+echo "Starting build ..."
+rm -rf {build,customer-web-portal}
+
+echo "Clone the Git project"
+git clone https://github.com/vdespa/customer-web-portal
+
+echo "Create the directory structure"
+mkdir -p build/public/{js,css}
+
+echo "Add empty index.html files to public directories"
+touch build/public/index.html 
+touch build/public/js/index.html 
+touch build/public/css/index.html
+
+echo "Add build information"
+echo "Created: $(date)" > build/build-info.txt
+echo "Created by: $USER" >> build/build-info.txt
+
+echo "Compile the application"
+g++ customer-web-portal/web-app.cpp -o build/public/web-app.cgi
+cp -r customer-web-portal/js/. build/public/js
+cp -r customer-web-portal/css/. build/public/css
+
+echo "Test the application"
+build/public/web-app.cgi | grep "Customer Web Portal"
+if [ $? -eq 0 ]
+then
+  echo "Test successful."
+else
+  echo "Aborting build. Test failed."
+  exit 1
+fi
+
+echo "Build completed!"
+exit
